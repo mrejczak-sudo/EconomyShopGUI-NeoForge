@@ -1,0 +1,38 @@
+plugins {
+    id 'java'
+    // Neoforge gradle plugin is needed to build a NeoForge mod.
+    // The plugin will be resolved by Gradle when you run the build (internet required).
+    id 'net.neoforged.gradle' version '6.0.+'
+}
+
+group = 'me.gypopo'
+version = '6.15.1-neoforge'
+
+repositories {
+    mavenCentral()
+    // Additional repositories required by neoforge/forge will be resolved by the plugin
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+minecraft {
+    mappings channel: 'official', version: '1.21.1'
+    // Configure runs for testing if desired
+    runs {
+        client {}
+        server {}
+    }
+}
+
+dependencies {
+    implementation 'org.yaml:snakeyaml:1.33'
+    implementation 'com.google.code.gson:gson:2.10.1'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

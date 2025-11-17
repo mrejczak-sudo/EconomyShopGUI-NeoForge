@@ -1,0 +1,12 @@
+title: Example Shop
+items:
+  - item: DIAMOND
+    amount: 1
+    buy: 100
+    sell: 75
+    slot: 0
+  - item: IRON_INGOT
+    amount: 16
+    buy: 10
+    sell: 5
+    slot: 1
